@@ -8,7 +8,8 @@ import Provider from './provider';
 const App: React.FC = () => {
   const [h, setH] = useState(0);
   const [s, setS] = useState(0);
-  const theme = useTheme(h, s);
+  const [accentOffset, setAccentOffset] = useState(0);
+  const theme = useTheme(h, accentOffset);
 
   return (
     <div>
@@ -19,9 +20,9 @@ const App: React.FC = () => {
         </div>
       </div>
       <div>
-        <label>Saturation Seed ({s})</label>
+        <label>Accent Offset ({accentOffset})</label>
         <div>
-          <input type="range" min="0" max="100" value={s} onChange={(e) => setS(+e.target.value)} style={{ width: '90%' }} />
+          <input type="range" min="0" max="360" value={accentOffset} onChange={(e) => setAccentOffset(+e.target.value)} style={{ width: '90%' }} />
         </div>
       </div>
       <main>
